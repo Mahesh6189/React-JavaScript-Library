@@ -1,0 +1,35 @@
+import {useState} from 'react';
+import './App.css';
+
+function Palindrome() {
+  const[number,setNumber]=useState('');
+   const[msg,setMsg]=useState('')
+  const handleClick=()=>{
+    let n=parseInt(number)
+    let res=0
+    while(n!==0){
+      let rem=n%10
+      res=(res*10)+rem
+      n=Math.floor(n/10)
+    }
+    if(parseInt(number)===res)
+    {
+       setMsg("palindrome")
+    }
+    else{
+      setMsg("Not Palindrome")
+    }
+  }
+
+  return (
+   
+    
+    <>
+      <input placeholder="Enter a number" type="number" value= {number} onChange={(e)=>setNumber(e.target.value)}/>
+      <button id="b1" onClick={handleClick}>check</button>
+      <h2> res:<span value={msg} onChange={(e)=>setMsg(e.target.value)}>{msg}</span></h2>
+    </>
+  );
+}
+
+export default Palindrome;
