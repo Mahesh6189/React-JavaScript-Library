@@ -1,0 +1,26 @@
+import React from 'react'
+import {useState} from 'react';
+function EvenOdd(){
+  const[number,SetNumber]=useState('')
+  const[msg,SetMsg]=useState('')
+  const handleClick=()=>{
+         let n=parseInt(number);
+         if(n%2===0){
+          SetMsg("Even Number")
+         }
+         else{
+          SetMsg("Odd number")
+         }
+  }
+
+  return(
+    <>
+     <input placeholder="Enter a number" value={number} onChange={(e)=>SetNumber(e.target.value)}/>
+     <button onClick={handleClick}>Check</button>
+     <h1>res:<span onChange={(e)=>SetMsg(e.target.value)}>{msg}</span></h1>
+    </>
+  );
+
+  
+}
+export default EvenOdd;
